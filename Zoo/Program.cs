@@ -1,35 +1,34 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
+using FluentValidation;
+using Zoo;
 using Zoo.Data;
 using Zoo.Data.Entities;
-using Zoo.Services;  // Add this using statement
 
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddDbContext<ZooDbContext>(options =>
-            options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQL")));
+builder.Services.AddDbContext<ZooDbContext>();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
-        builder.Services.AddTransient<ZooDataSeeder>();  // Register the ZooDataSeeder service
 
-        builder.Services.AddControllers();
 
-        var app = builder.Build();
+// PostgreSQL
+// Npgsql.EntityFrameworkCore.PostgreSQL
+// Microsoft.EntityFrameworkCore.Tools
 
-        // Seed initial data during application startup
-        using (var scope = app.Services.CreateScope())
-        {
-            var services = scope.ServiceProvider;
-            var zooDataSeeder = services.GetRequiredService<ZooDataSeeder>();
-            zooDataSeeder.SeedDataFromJson();  // Add this method in your ZooDataSeeder class
-        }
+// FluentValidation
+// FluentValidation.DependancyInjectionExtensions
+// O9d.AspNet.FluentValidation
 
-        app.MapControllers();
+// dotnet tool install --global dotnet -ef
+var app = builder.Build();
 
-        app.Run();
-    }
-}
+
+var enclosureGroup = app.MapGroup("/api").WithValidationFilter();
+EnclosureEndpoints.AddEnclosureApi(enclosureGroup);
+var animalGroup = app.MapGroup("/api/enclosures/{enclosureId}").WithValidationFilter();
+AnimalEndpoints.AddAnimalApi(animalGroup);
+
+
+app.Run();

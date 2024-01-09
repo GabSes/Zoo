@@ -21,7 +21,7 @@ namespace Zoo.Migrations
                     Size = table.Column<string>(type: "text", nullable: false),
                     Location = table.Column<string>(type: "text", nullable: false),
                     Objects = table.Column<string[]>(type: "text[]", nullable: false),
-                    AllowedSpecies = table.Column<string[]>(type: "text[]", nullable: false)
+                    AllowedSpecies = table.Column<string[]>(type: "text[]", nullable: true)
                 },
                 constraints: table =>
                 {

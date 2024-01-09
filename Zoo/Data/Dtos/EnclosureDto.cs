@@ -2,10 +2,10 @@
 
 namespace Zoo.Data.Dtos;
 
-public record CreateEnclosureDto(string Name, string Size, string Location, string[] Objects, string[] AllowedSpecies);
-public record UpdateEnclosureDto(string Name, string Size, string Location, string[] Objects, string[] AllowedSpecies);
+public record CreateEnclosureDto(string Name, string Size, string Location, string[] Objects, string[]? AllowedSpecies);
+public record UpdateEnclosureDto(string Name, string Size, string Location, string[] Objects, string[]? AllowedSpecies);
 
-// Modified Enclosure DTO Validator
+
 public class CreateEnclosureValidator : AbstractValidator<CreateEnclosureDto>
 {
     public CreateEnclosureValidator()
@@ -14,7 +14,7 @@ public class CreateEnclosureValidator : AbstractValidator<CreateEnclosureDto>
         RuleFor(dto => dto.Size).NotEmpty().NotNull();
         RuleFor(dto => dto.Location).NotEmpty().NotNull();
         RuleFor(dto => dto.Objects).NotEmpty().NotNull();
-        RuleFor(dto => dto.AllowedSpecies).NotNull(); // Modify as needed
+        RuleFor(dto => dto.AllowedSpecies).Null();
     }
 }
 
@@ -26,6 +26,6 @@ public class UpdateEnclosureValidator : AbstractValidator<UpdateEnclosureDto>
         RuleFor(dto => dto.Size).NotEmpty().NotNull();
         RuleFor(dto => dto.Location).NotEmpty().NotNull();
         RuleFor(dto => dto.Objects).NotEmpty().NotNull();
-        RuleFor(dto => dto.AllowedSpecies).NotNull(); // Modify as needed
+        RuleFor(dto => dto.AllowedSpecies).Null();
     }
 }

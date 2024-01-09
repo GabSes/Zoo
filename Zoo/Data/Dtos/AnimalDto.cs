@@ -5,7 +5,7 @@ namespace Zoo.Data.Dtos;
 public record CreateAnimalDto(string Species, string Food, int Amount);
 public record UpdateAnimalDto(string Species, string Food, int Amount);
 
-// Modified Animal DTO Validators
+
 public class CreateAnimalValidator : AbstractValidator<CreateAnimalDto>
 {
     public CreateAnimalValidator()

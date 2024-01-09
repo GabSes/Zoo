@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo\\Zoo\\Zoo.csproj": {}
+    "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo1\\Zoo\\Zoo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo\\Zoo\\Zoo.csproj": {
+    "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo1\\Zoo\\Zoo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo\\Zoo\\Zoo.csproj",
+        "projectUniqueName": "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo1\\Zoo\\Zoo.csproj",
         "projectName": "Zoo",
-        "projectPath": "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo\\Zoo\\Zoo.csproj",
+        "projectPath": "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo1\\Zoo\\Zoo.csproj",
         "packagesPath": "C:\\Users\\Gabija\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo\\Zoo\\obj\\",
+        "outputPath": "C:\\Users\\Gabija\\Desktop\\SAITYNAI\\Zoo1\\Zoo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

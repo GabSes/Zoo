@@ -7,7 +7,6 @@ using Zoo.Data.Entities;
 namespace Zoo;
 
 
-// Modified AnimalEndpoints class
 public static class AnimalEndpoints
 {
     public static void AddAnimalApi(RouteGroupBuilder animalGroup)
@@ -88,14 +87,14 @@ public static class AnimalEndpoints
                         // Handle the case where no suitable enclosure is found (create a new enclosure)
                         var newEnclosure = new Enclosure
                         {
-                            // Initialize new enclosure properties based on your requirements
+                            // Initialize new enclosure properties 
                             Name = $"New Enclosure {Guid.NewGuid().ToString().Substring(0, 8)}",
-                            Size = "Medium",  // Set a default size or determine dynamically
-                            Location = "Outside",  // Set a default location or determine dynamically
-                            Objects = new string[0],  // Initialize based on your requirements for objects
+                            Size = "Medium",  // Set a default size 
+                            Location = "Outside",  // Set a default location 
+                            Objects = new string[0], 
                             AllowedSpecies = animal.Food.ToLower() == "herbivore"
                                 ? new[] { animal.Species }  // Vegetarian animals can be placed together
-                                : new string[0]  // Initialize based on your requirements for meat-eating animals
+                                : new string[0]  // for meat-eating animals
                         };
 
                         dbContext.Enclosures.Add(newEnclosure);
@@ -142,7 +141,7 @@ public static class AnimalEndpoints
         return null;
     }
 
-    private const int MaxAnimalsPerEnclosure = 5; // Adjust this value based on your requirements
+    private const int MaxAnimalsPerEnclosure = 5;
 }
 
 
